@@ -1,8 +1,11 @@
-import ProductCard from '../product/ProductCard';
+import ProductCard from '../../components/product/ProductCard';
 import { products } from '../../db/Products';
 import style from "./MainPage.module.css"
+import useTitle from '../../hooks/useTitle';
 
 const MainPage = () => {
+    useTitle('Главная страница');
+
     return (
         <main className='flex-1'>
             <section className="categories">

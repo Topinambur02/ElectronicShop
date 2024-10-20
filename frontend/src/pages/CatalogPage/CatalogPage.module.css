@@ -1,0 +1,10 @@
+.filters {
+    width: 20%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters li {
+    border-bottom: 1px solid hsla(0, 0%, 50%, 0.485);
+}

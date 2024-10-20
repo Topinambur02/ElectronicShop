@@ -1,15 +1,6 @@
+import { ProductProps } from '../../types/ProductType';
 import style from './ProductCard.module.css';
 
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-    imageUrl: string;
-}
-
-interface ProductProps {
-    product: Product;
-}
 
 const ProductCard = (props: ProductProps) => {
     return (

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import UserStore from './store/UserStore';
+import { IContext } from './types/UserStoreType';
+
+export const Context = createContext<IContext | null>(null);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,8 +13,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Context.Provider value={ {
+      user: new UserStore()
+    } }>
       <App />
-    </BrowserRouter>
+    </Context.Provider>
   </React.StrictMode>
 );

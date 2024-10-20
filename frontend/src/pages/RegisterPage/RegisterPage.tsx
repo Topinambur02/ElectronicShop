@@ -1,6 +1,9 @@
+import useTitle from '../../hooks/useTitle';
 import style from './RegisterPage.module.css';
 
 const RegisterPage = () => {
+  useTitle('Регистрация');
+
   return (
     <div className={style.container}>
       <div className={style.formContainer}>
