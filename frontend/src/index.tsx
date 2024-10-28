@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import UserStore from './store/UserStore';
 import { IContext } from './types/UserStoreType';
+import { DeviceStore } from './store/DeviceStore';
 
 export const Context = createContext<IContext | null>(null);
 
@@ -14,7 +15,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Context.Provider value={ {
-      user: new UserStore()
+      userStore: new UserStore(),
+      deviceStore: new DeviceStore()
     } }>
       <App />
     </Context.Provider>

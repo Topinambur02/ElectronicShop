@@ -34,4 +34,24 @@ export class DeviceStore {
     setDevices(devices: Array<Product>) {
         this._devices = devices;
     }
+
+    setTypes(types: Array<Type>) {
+        this._types = types;
+    }
+
+    setBrands(brands: Array<Brands>) {
+        this._brands = brands;
+    }
+
+    get devices() {
+        return this._devices;
+    }
+
+    get types() {
+        return this._types;
+    }
+
+    get brands() {
+        return this._brands;
+    }
 }

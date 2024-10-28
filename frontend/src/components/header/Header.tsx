@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
 import './Header.module.css';
+import { useContext } from 'react';
+import { Context } from '../..';
 
 const Header = () => {
+
+  const context = useContext(Context);
+
+  if (!context) {
+    return null;
+  }
+
+  const { userStore } = context;
+
   return (
     <header>
 
@@ -21,10 +32,18 @@ const Header = () => {
         <button>Найти</button>
       </div>
 
-      <div className='flex gap-5'>
-        <Link to="/login">Вход</Link>
-        <Link to="/register">Регистрация</Link>
-      </div>
+      {userStore.isAuth ?
+        <div className='flex gap-5'>
+          <Link to="/login">{userStore.user.login}</Link>
+          <Link to="/register">Регистрация</Link>
+        </div>
+        :
+        <div className='flex gap-5'>
+          <Link to="/login">Вход</Link>
+          <Link to="/register">Регистрация</Link>
+        </div>
+      }
+
 
     </header>
   );

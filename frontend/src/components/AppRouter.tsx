@@ -11,11 +11,11 @@ const AppRouter = () => {
         return null;
     }
 
-    const { user } = context;
+    const { userStore } = context;
 
     return (
         <Routes>
-            {user.isAuth && authRoutes.map(({ path, Component }) => (
+            {userStore.isAuth && authRoutes.map(({ path, Component }) => (
                 <Route key={path} path={path} Component={Component} />
             ))};
             
