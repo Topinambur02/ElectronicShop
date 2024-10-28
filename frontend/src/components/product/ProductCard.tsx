@@ -1,13 +1,12 @@
 import { ProductProps } from '../../types/ProductType';
 import style from './ProductCard.module.css';
 
-
-const ProductCard = (props: ProductProps) => {
+const ProductCard = ({product, className}: ProductProps) => {
     return (
-        <div className={style.productCard}>
-            <img src={props.product.imageUrl} alt={props.product.name} />
-            <h3>{props.product.name}</h3>
-            <p>Цена: {props.product.price}</p>
+        <div className={`${style.productCard} ${className}` }>
+            <img src={product.imageUrl} alt={product.name} />
+            <h3>{product.name}</h3>
+            <p>Цена: {product.price}</p>
             <button>Добавить в корзину</button>
         </div>
     );

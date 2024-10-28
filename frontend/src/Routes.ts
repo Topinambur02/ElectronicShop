@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage/LoginPage"
 import MainPage from "./pages/MainPage/MainPage"
 import RegisterPage from "./pages/RegisterPage/RegisterPage"
 import StocksPage from "./pages/StocksPage"
-import { ABOUT_ROUTE, ADMIN_ROUTE, BASKET_ROUTE, CATALOG_ROUTE, CONTACTS_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE, STOCKS_ROUTE } from "./utils/consts"
+import { ABOUT_ROUTE, ADMIN_ROUTE, BASKET_ROUTE, CATALOG_ROUTE, CONTACTS_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE, STOCKS_ROUTE } from "./consts/consts"
 
 export const authRoutes = [
     {

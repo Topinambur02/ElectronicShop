@@ -1,10 +1,19 @@
 import ProductCard from '../../components/product/ProductCard';
-import { products } from '../../db/Products';
 import style from "./MainPage.module.css"
 import useTitle from '../../hooks/useTitle';
+import { useContext } from 'react';
+import { Context } from '../..';
 
 const MainPage = () => {
     useTitle('Главная страница');
+
+    const context = useContext(Context);
+
+    if (!context) {
+        return null;
+    }
+
+    const { deviceStore } = context;
 
     return (
         <main className='flex-1'>
@@ -25,7 +34,7 @@ const MainPage = () => {
 
                 <div className={style.products}>
 
-                    {products.map(product => <ProductCard key={product.id} product={product} />)}
+                    {deviceStore.devices.map(product => <ProductCard className={style.longCard} key={product.id} product={product} />)}
 
                 </div>
 
