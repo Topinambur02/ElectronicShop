@@ -29,7 +29,6 @@ const Header = () => {
 
       <div className="flex items-center gap-5">
         <input className='p-1' type="text" placeholder="Поиск" />
-        <button>Найти</button>
       </div>
 
       {userStore.isAuth ?

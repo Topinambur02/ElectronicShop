@@ -34,7 +34,7 @@ const MainPage = () => {
 
                 <div className={style.products}>
 
-                    {deviceStore.devices.map(product => <ProductCard className={style.longCard} key={product.id} product={product} />)}
+                    {deviceStore.devices.map(product => <ProductCard key={product.id} product={product} />)}
 
                 </div>
 

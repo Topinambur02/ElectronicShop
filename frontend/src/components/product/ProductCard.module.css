@@ -10,6 +10,12 @@
     width: 100%;
     height: auto;
 }
+
+.priceAndButton {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
   
 .productCard button {
     background-color: #3498db;

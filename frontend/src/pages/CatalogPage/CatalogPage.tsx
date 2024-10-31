@@ -3,6 +3,7 @@ import useTitle from '../../hooks/useTitle';
 import style from './CatalogPage.module.css';
 import { Context } from '../..';
 import ProductCard from '../../components/product/ProductCard';
+import { ChevronDown } from 'lucide-react';
 
 const CatalogPage = () => {
   useTitle('Каталог');
@@ -23,14 +24,14 @@ const CatalogPage = () => {
         <div className={style.filters}>
 
           <ul>
-            <li>Цена</li>
-            <li>Бренд</li>
-            <li>Рейтинг</li>
-            <li>Тип устройства</li>
-            <li>Технические характеристики</li>
-            <li>Год выпуска</li>
-            <li>Цвет</li>
-            <li>Страна производителей</li>
+            <li><ChevronDown /> Цена</li>
+            <li><ChevronDown /> Бренд</li>
+            <li><ChevronDown /> Рейтинг</li>
+            <li><ChevronDown /> Тип устройства</li>
+            <li><ChevronDown /> Технические характеристики</li>
+            <li><ChevronDown /> Год выпуска</li>
+            <li><ChevronDown /> Цвет</li>
+            <li><ChevronDown /> Страна производителей</li>
           </ul>
 
         </div>

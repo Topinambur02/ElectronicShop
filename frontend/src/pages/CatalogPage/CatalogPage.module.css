@@ -11,6 +11,7 @@
 }
 
 .filters li {
+    display: flex;
     border-bottom: 1px solid hsla(0, 0%, 50%, 0.485);
 }
 
@@ -22,12 +23,48 @@
     margin-right: 20px;
 }
 
-.right {
-    /* margin-left: 20px; */
-}
-
 .longCard {
     display: flex;
-    height: auto;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
     width: auto;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.longCard button {
+    color: black;
+    border: 1px solid rgb(0, 153, 255);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.longCard h3 {
+    text-align: left;
+    flex-grow: 1;
+}
+
+h3:hover {
+    color: cornflowerblue;
+}
+
+.longCard p {
+    align-self: flex-end;
+}
+
+.longCard img {
+    width: 20%;
+}
+
+.longCard:hover button {
+    background-color: cornflowerblue;
+}
+
+.arrow {
+    content: "\e260";
 }
