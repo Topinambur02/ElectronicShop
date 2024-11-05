@@ -1,14 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import useTitle from '../../hooks/useTitle';
 import style from './CatalogPage.module.css';
 import { Context } from '../..';
 import ProductCard from '../../components/product/ProductCard';
 import { ChevronDown } from 'lucide-react';
+import LoginModal from '../../components/modal/LoginModal';
 
 const CatalogPage = () => {
   useTitle('Каталог');
 
   const context = useContext(Context);
+  const [ modal, setModal ] = useState(false);
 
   if (!context) {
     return null;
@@ -18,6 +20,8 @@ const CatalogPage = () => {
 
   return (
     <div className={style.container}>
+
+      <LoginModal visible={modal} setVisible={setModal} /> 
 
       <div className={style.left}>
 
@@ -39,7 +43,7 @@ const CatalogPage = () => {
 
       <div className={style.right}>
 
-        {deviceStore.devices.map((device) => (<ProductCard className={style.longCard} key={device.id} product={device} />))}
+        {deviceStore.devices.map(device => (<ProductCard setModal={setModal} className={style.longCard} key={device.id} product={device} />))}
 
       </div>
 

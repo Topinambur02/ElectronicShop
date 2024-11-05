@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Product {
     id: number;
     name: string;
@@ -5,7 +7,8 @@ export interface Product {
     imageUrl: string;
 }
 
-export interface ProductProps {
+export interface IProps {
     product: Product;
     className?: string;
+    setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }

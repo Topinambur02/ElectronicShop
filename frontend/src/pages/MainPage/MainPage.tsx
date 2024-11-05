@@ -1,13 +1,15 @@
 import ProductCard from '../../components/product/ProductCard';
 import style from "./MainPage.module.css"
 import useTitle from '../../hooks/useTitle';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Context } from '../..';
+import LoginModal from '../../components/modal/LoginModal';
 
 const MainPage = () => {
     useTitle('Главная страница');
 
     const context = useContext(Context);
+    const [modal, setModal] = useState(false);
 
     if (!context) {
         return null;
@@ -17,6 +19,9 @@ const MainPage = () => {
 
     return (
         <main className='flex-1'>
+
+            <LoginModal visible={modal} setVisible={setModal} />
+
             <section className="categories">
                 <h2>Категории товаров</h2>
 
@@ -34,7 +39,7 @@ const MainPage = () => {
 
                 <div className={style.products}>
 
-                    {deviceStore.devices.map(product => <ProductCard key={product.id} product={product} />)}
+                    {deviceStore.devices.map(product => <ProductCard setModal={setModal} key={product.id} product={product} />)}
 
                 </div>
 

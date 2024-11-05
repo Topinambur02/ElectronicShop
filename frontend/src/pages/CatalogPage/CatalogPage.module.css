@@ -64,7 +64,3 @@ h3:hover {
 .longCard:hover button {
     background-color: cornflowerblue;
 }
-
-.arrow {
-    content: "\e260";
-}

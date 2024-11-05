@@ -1,7 +1,12 @@
-import { ProductProps } from '../../types/ProductType';
+import { IProps } from '../../types/ProductType';
 import style from './ProductCard.module.css';
 
-const ProductCard = ({ product, className = `${style.productCard}` }: ProductProps) => {
+const ProductCard = ({ product, className = `${style.productCard}`, setModal }: IProps) => {
+
+    const handleAddToCart = () => { 
+        setModal(true);
+    }
+
     return (
         <div className={`${className}`}>
             <img src={product.imageUrl} alt={product.name} />
@@ -9,7 +14,7 @@ const ProductCard = ({ product, className = `${style.productCard}` }: ProductPro
 
             <div className={style.priceAndButton}>
                 <p>Цена: {product.price} ₽</p>
-                <button>Добавить в корзину</button>
+                <button onClick={handleAddToCart} >Добавить в корзину</button>
             </div>
         </div>
     );
