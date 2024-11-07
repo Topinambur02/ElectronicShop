@@ -4,5 +4,5 @@
 
 *Технологии*: <br />
         - **frontend**: React, TypeScript, Axios, TailwindCSS <br />
-        - **backend**: Express.js, Typescript, PostgreSQL <br />
+        - **backend**: Spring, Hibernate, Java, PostgreSQL <br />
         - **другие технологии**: Docker, Github <br />  
