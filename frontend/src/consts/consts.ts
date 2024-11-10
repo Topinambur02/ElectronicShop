@@ -7,4 +7,5 @@ export const STOCKS_ROUTE = '/stock';
 export const BASKET_ROUTE = '/basket';
 export const CATALOG_ROUTE = '/catalog';
 export const ABOUT_ROUTE = '/about';
+export const PROFILE_ROUTE = '/profile';
 export const MAIN_ROUTE = '/';

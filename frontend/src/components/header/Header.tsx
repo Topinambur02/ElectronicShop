@@ -33,8 +33,8 @@ const Header = () => {
 
       {userStore.isAuth ?
         <div className='flex gap-5'>
-          <Link to="/login">{userStore.user.login}</Link>
-          <Link to="/register">Регистрация</Link>
+          <Link to="/profile">{userStore.user.login}</Link>
+          <Link to="/basket">Корзина(0)</Link>
         </div>
         :
         <div className='flex gap-5'>

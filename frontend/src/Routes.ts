@@ -1,6 +1,6 @@
 import AboutPage from "./pages/AboutPage"
 import AdminPage from "./pages/AdminPage"
-import BasketPage from "./pages/BasketPage"
+import BasketPage from "./pages/BasketPage/BasketPage"
 import CatalogPage from "./pages/CatalogPage/CatalogPage"
 import ContactsPage from "./pages/ContactsPage"
 import DevicePage from "./pages/DevicePage"
@@ -8,7 +8,8 @@ import LoginPage from "./pages/LoginPage/LoginPage"
 import MainPage from "./pages/MainPage/MainPage"
 import RegisterPage from "./pages/RegisterPage/RegisterPage"
 import StocksPage from "./pages/StocksPage"
-import { ABOUT_ROUTE, ADMIN_ROUTE, BASKET_ROUTE, CATALOG_ROUTE, CONTACTS_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE, STOCKS_ROUTE } from "./consts/consts"
+import { ABOUT_ROUTE, ADMIN_ROUTE, BASKET_ROUTE, CATALOG_ROUTE, CONTACTS_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, STOCKS_ROUTE } from "./consts/consts"
+import ProfilePage from "./pages/ProfilePage"
 
 export const authRoutes = [
     {
@@ -18,6 +19,10 @@ export const authRoutes = [
     {
         path: BASKET_ROUTE,
         Component: BasketPage
+    },
+    {
+        path: PROFILE_ROUTE,
+        Component: ProfilePage
     }
 ] 
 

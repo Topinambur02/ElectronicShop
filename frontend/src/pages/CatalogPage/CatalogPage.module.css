@@ -49,10 +49,6 @@
     flex-grow: 1;
 }
 
-h3:hover {
-    color: cornflowerblue;
-}
-
 .longCard p {
     align-self: flex-end;
 }
@@ -63,4 +59,8 @@ h3:hover {
 
 .longCard:hover button {
     background-color: cornflowerblue;
+}
+
+.longCard:hover h3 {
+    color: cornflowerblue;
 }

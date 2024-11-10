@@ -1,27 +1,34 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import useTitle from '../../hooks/useTitle';
 import style from './CatalogPage.module.css';
 import { Context } from '../..';
 import ProductCard from '../../components/product/ProductCard';
 import { ChevronDown } from 'lucide-react';
 import LoginModal from '../../components/modal/LoginModal';
+import { getAllDevices } from '../../http/DeviceApi';
+import { observer } from 'mobx-react-lite';
 
-const CatalogPage = () => {
+const CatalogPage = observer(() => {
   useTitle('Каталог');
 
   const context = useContext(Context);
-  const [ modal, setModal ] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    getAllDevices().then(data => context?.deviceStore.setDevices(data));
+  },[]);
 
   if (!context) {
     return null;
   }
 
+  const { userStore } = context;
   const { deviceStore } = context;
 
   return (
     <div className={style.container}>
 
-      <LoginModal visible={modal} setVisible={setModal} /> 
+      {!userStore.isAuth && <LoginModal visible={modal} setVisible={setModal} />}
 
       <div className={style.left}>
 
@@ -49,6 +56,6 @@ const CatalogPage = () => {
 
     </div>
   );
-};
+});
 
 export default CatalogPage;

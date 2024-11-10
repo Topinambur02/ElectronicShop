@@ -1,26 +1,33 @@
 import ProductCard from '../../components/product/ProductCard';
 import style from "./MainPage.module.css"
 import useTitle from '../../hooks/useTitle';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Context } from '../..';
 import LoginModal from '../../components/modal/LoginModal';
+import { getAllDevices } from '../../http/DeviceApi';
+import { observer } from 'mobx-react-lite';
 
-const MainPage = () => {
+const MainPage = observer(() => {
     useTitle('Главная страница');
 
     const context = useContext(Context);
     const [modal, setModal] = useState(false);
 
+    useEffect(() => {
+        getAllDevices().then(data => context?.deviceStore.setDevices(data))
+    }, []);
+
     if (!context) {
         return null;
     }
 
+    const { userStore } = context;
     const { deviceStore } = context;
 
     return (
         <main className='flex-1'>
 
-            <LoginModal visible={modal} setVisible={setModal} />
+            {!userStore.isAuth && <LoginModal visible={modal} setVisible={setModal} />}
 
             <section className="categories">
                 <h2>Категории товаров</h2>
@@ -39,7 +46,7 @@ const MainPage = () => {
 
                 <div className={style.products}>
 
-                    {deviceStore.devices.map(product => <ProductCard setModal={setModal} key={product.id} product={product} />)}
+                    {deviceStore.devices.map(product => <ProductCard className={style.productCard} setModal={setModal} key={product.id} product={product} />)}
 
                 </div>
 
@@ -47,6 +54,6 @@ const MainPage = () => {
 
         </main>
     );
-};
+});
 
 export default MainPage;
