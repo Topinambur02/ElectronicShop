@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tyrdanov.backend.dto.BucketDto;
 import com.tyrdanov.backend.dto.DeviceDto;
 import com.tyrdanov.backend.entity.Bucket;
 import com.tyrdanov.backend.service.BucketService;
@@ -22,12 +23,12 @@ public class BucketController {
     private final BucketService service;
 
     @PostMapping("/{bucketId}/add/{deviceId}")
-    public Bucket addDeviceToBucket(@PathVariable Long bucketId, @PathVariable Long deviceId) {
+    public BucketDto addDeviceToBucket(@PathVariable Long bucketId, @PathVariable Long deviceId) {
         return service.addDeviceToBucket(bucketId, deviceId);
     }
 
     @PostMapping("/{bucketId}/remove/{deviceId}")
-    public Bucket removeDeviceFromBucket(@PathVariable Long bucketId, @PathVariable Long deviceId) {
+    public BucketDto removeDeviceFromBucket(@PathVariable Long bucketId, @PathVariable Long deviceId) {
         return service.removeDeviceFromBucket(bucketId, deviceId);
     }
 

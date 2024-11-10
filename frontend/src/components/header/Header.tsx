@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import './Header.module.css';
 import { useContext } from 'react';
 import { Context } from '../..';
+import { observer } from 'mobx-react-lite';
+import { cartStore } from '../../store/CartStore';
 
-const Header = () => {
+const Header = observer(() => {
 
   const context = useContext(Context);
 
@@ -34,7 +36,7 @@ const Header = () => {
       {userStore.isAuth ?
         <div className='flex gap-5'>
           <Link to="/profile">{userStore.user.login}</Link>
-          <Link to="/basket">Корзина(0)</Link>
+          <Link to="/basket">Корзина({cartStore.cart.length})</Link>
         </div>
         :
         <div className='flex gap-5'>
@@ -46,6 +48,6 @@ const Header = () => {
 
     </header>
   );
-};
+});
 
 export default Header;

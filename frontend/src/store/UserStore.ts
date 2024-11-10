@@ -8,7 +8,7 @@ export default class UserStore {
     constructor () {
         this._isAuth = true;
         // this._user = {} as User;
-        this._user = { id: 1, login: 'test', role: 'ADMIN', password: 'test' }
+        this._user = { id: 1, login: 'test', role: 'ADMIN', password: 'test', bucketId: 1 };
         makeAutoObservable(this);
     }
 

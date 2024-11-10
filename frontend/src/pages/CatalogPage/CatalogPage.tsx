@@ -22,8 +22,7 @@ const CatalogPage = observer(() => {
     return null;
   }
 
-  const { userStore } = context;
-  const { deviceStore } = context;
+  const { userStore, deviceStore } = context;
 
   return (
     <div className={style.container}>

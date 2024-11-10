@@ -21,7 +21,11 @@ body {
     margin: 20px 0;
 }
 
-a:hover {
+header a:hover {
+    color: #3498db;
+}
+
+footer a:hover {
     color: #3498db;
 }
   

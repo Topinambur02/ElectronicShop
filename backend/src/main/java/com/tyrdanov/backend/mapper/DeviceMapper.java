@@ -6,7 +6,7 @@ import org.mapstruct.Mapping;
 import com.tyrdanov.backend.dto.DeviceDto;
 import com.tyrdanov.backend.entity.Device;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface DeviceMapper {
     
     @Mapping(target = "bucketId", ignore = true)

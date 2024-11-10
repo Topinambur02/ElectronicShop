@@ -3,4 +3,5 @@ export interface User {
     login: string
     role: string
     password: string
+    bucketId: number
 }
