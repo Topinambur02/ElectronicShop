@@ -1,4 +1,4 @@
-FROM maven:3.8.4-openjdk-17 AS build
+FROM maven:3.9-amazoncorretto AS build
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ COPY backend/src ./src
 
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jdk-alpine
+FROM openjdk:24-jdk-oracle
 
 WORKDIR /app
 
