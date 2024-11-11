@@ -34,9 +34,7 @@ public class BucketService {
                 deviceRepository.save(device);
                 bucket.getDevices().add(device);
 
-                final var dto = mapper.toDto(bucket);
-
-                return dto;
+                return mapper.toDto(bucket);
         }
 
         public BucketDto removeDeviceFromBucket(Long bucketId, Long deviceId) {
@@ -47,11 +45,11 @@ public class BucketService {
                                 .findById(deviceId)
                                 .orElseThrow(() -> new RuntimeException("Device not found"));
 
+                device.setBucket(null);
+                deviceRepository.save(device);
                 bucket.getDevices().remove(device);
 
-                final var dto = mapper.toDto(bucket);
-
-                return dto;
+                return mapper.toDto(bucket);
         }
 
         public List<DeviceDto> getDevices(Long bucketId) {

@@ -1,0 +1,1 @@
+INSERT INTO bucket (id) VALUES (1);

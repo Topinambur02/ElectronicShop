@@ -1,0 +1,3 @@
+CREATE TABLE bucket (
+    id SERIAL PRIMARY KEY
+);

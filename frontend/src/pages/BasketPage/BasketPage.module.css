@@ -4,16 +4,80 @@
     font-size: 32px;
 }
 
-.container {
-    width: 95%;
-    margin: 0 auto;
-    padding: 2rem;
+.goods {
+    width: calc(100% - 370px);
+    margin: 40px;
+    padding: 1rem;
     background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.orderTerms {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    height: 200px;
+    margin: 40px;
+    padding: 1rem;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.orderTerms .text {
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.orderTerms button {
+    width: 100%;
+    margin-top: auto;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.orderTerms .total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
 }
 
 h2 {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+}
+
+.longCard {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.longCard:last-child {
+    margin-bottom: 0px;
+}
+
+.longCard h3 {
+    margin-right: auto;
+}
+
+.longCard img {
+    width: 20%;
+}
+
+.longCard .addToCartButton {
+    display: none;
 }

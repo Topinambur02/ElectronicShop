@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tyrdanov.backend.dto.BucketDto;
 import com.tyrdanov.backend.dto.DeviceDto;
-import com.tyrdanov.backend.entity.Bucket;
 import com.tyrdanov.backend.service.BucketService;
 
 import lombok.RequiredArgsConstructor;
