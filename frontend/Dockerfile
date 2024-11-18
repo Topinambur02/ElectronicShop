@@ -1,11 +1,19 @@
-FROM node:18-alpine
+FROM node:alpine AS build
 
-WORKDIR /app
+COPY package.json ./
 
-COPY frontend/package*.json ./
+RUN npm config set strict-ssl false
 
-RUN npm install
+RUN npm install --force --loglevel verbose
 
-COPY ./frontend .
+COPY . .
 
-CMD ["npm", "start"]
+RUN npm run build
+
+FROM nginx:stable-alpine
+
+COPY --from=build /build /usr/share/nginx/html
+
+EXPOSE 3000
+
+CMD ["nginx", "-g", "daemon off;"]

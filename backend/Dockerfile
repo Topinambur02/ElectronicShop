@@ -1,18 +1,14 @@
 FROM maven:3.9-amazoncorretto AS build
 
-WORKDIR /app
+COPY pom.xml .
 
-COPY backend/pom.xml .
-
-COPY backend/src ./src
+COPY /src ./src
 
 RUN mvn clean package -DskipTests
 
 FROM openjdk:24-jdk-oracle
 
-WORKDIR /app
-
-COPY --from=build /app/target/backend-0.0.1-SNAPSHOT.jar ./backend-0.0.1-SNAPSHOT.jar
+COPY --from=build /target/backend-0.0.1-SNAPSHOT.jar ./backend-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8080
 
