@@ -11,8 +11,15 @@
 }
 
 .filters li {
-    display: flex;
     border-bottom: 1px solid hsla(0, 0%, 50%, 0.485);
+}
+
+.oneFilter {
+    display: flex;
+}
+
+.oneFilter:hover {
+    background-color:rgb(0, 153, 255);
 }
 
 .filters li:last-child {

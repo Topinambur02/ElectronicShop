@@ -28,7 +28,7 @@ const ProductCard = ({ product, className = `${style.productCard}`, setModal }: 
 
     const handleAddToCart = async () => {
         try {
-            await addDeviceToBucket(userStore.user.bucketId, product.id);
+            addDeviceToBucket(userStore.user.bucketId, product.id);
             cartStore.addToCart(product);
             setIsAddedToCart(true);
             localStorage.setItem(`isAddedToCart_${product.id}`, JSON.stringify(true));
@@ -39,7 +39,7 @@ const ProductCard = ({ product, className = `${style.productCard}`, setModal }: 
 
     const handleRemoveFromCart = async () => {
         try {
-            await removeDeviceFromBucket(userStore.user.bucketId, product.id);
+            removeDeviceFromBucket(userStore.user.bucketId, product.id);
             cartStore.removeFromCart(product);
             setIsAddedToCart(false);
             localStorage.setItem(`isAddedToCart_${product.id}`, JSON.stringify(false));

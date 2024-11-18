@@ -2,7 +2,7 @@ import axios from "axios";
 
 const $host = axios.create({
     withCredentials: true,
-    baseURL: process.env.SERVER_URL
+    baseURL: "http://localhost:8080/api/"
 });
 
 export default $host;
