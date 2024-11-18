@@ -3,6 +3,7 @@ FROM maven:3.9-amazoncorretto AS build
 WORKDIR /app
 
 COPY backend/pom.xml .
+
 COPY backend/src ./src
 
 RUN mvn clean package -DskipTests

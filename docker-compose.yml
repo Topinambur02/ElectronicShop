@@ -1,6 +1,22 @@
 version: '3.8'
 
+networks:
+  dev:
+    driver: bridge
+
 services:
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    networks:
+      - dev
+
   db:
     image: postgres:14
     environment:
@@ -11,6 +27,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - dev
 
   spring_app:
     build:
@@ -24,13 +42,19 @@ services:
       SPRING_DATASOURCE_PASSWORD: postgres
     depends_on:
       - db
+    networks:
+      - dev
 
   react_app:
     build:
       context: .
       dockerfile: frontend/Dockerfile
     ports:
-      - "80:80"
+      - "3000:3000"
+    depends_on:
+      - spring_app
+    networks:
+      - dev
 
 volumes:
   postgres_data:
