@@ -1,3 +1,3 @@
-CREATE TABLE bucket (
+CREATE TABLE IF NOT EXISTS bucket (
     id SERIAL PRIMARY KEY
 );

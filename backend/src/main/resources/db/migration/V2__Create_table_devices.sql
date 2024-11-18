@@ -1,4 +1,4 @@
-CREATE TABLE devices (
+CREATE TABLE IF NOT EXISTS devices (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255),
