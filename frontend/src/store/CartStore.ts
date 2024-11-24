@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import { Product } from "../types/ProductType";
+import { DeviceType } from "../types/DeviceType";
 
 class CartStore {
-    private _cart: Array<Product> = [];
+    private _cart: Array<DeviceType> = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -12,16 +12,16 @@ class CartStore {
         return this._cart;
     }
 
-    addToCart(product: Product) {
-        if (this._cart.find(item => item.id === product.id)) {
+    addToCart(device: DeviceType) {
+        if (this._cart.find(item => item.id === device.id)) {
             return
         }
         
-        this._cart.push(product);
+        this._cart.push(device);
     }
 
-    removeFromCart(product: Product) {
-        this._cart = this._cart.filter(item => item.id !== product.id);
+    removeFromCart(device: DeviceType) {
+        this._cart = this._cart.filter(item => item.id !== device.id);
     }
 }
 

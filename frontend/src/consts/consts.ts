@@ -9,3 +9,4 @@ export const CATALOG_ROUTE = '/catalog';
 export const ABOUT_ROUTE = '/about';
 export const PROFILE_ROUTE = '/profile';
 export const MAIN_ROUTE = '/';
+export const CREATE_DEVICE_ROUTE = '/create-device';

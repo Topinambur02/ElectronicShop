@@ -5,17 +5,11 @@ import { Context } from "..";
 
 const AppRouter = () => {
 
-    const context = useContext(Context);
-
-    if (!context) {
-        return null;
-    }
-
-    const { userStore } = context;
+    const { userStore } = useContext(Context) || {};
 
     return (
         <Routes>
-            {userStore.isAuth && authRoutes.map(({ path, Component }) => (
+            {userStore?.isAuth && authRoutes.map(({ path, Component }) => (
                 <Route key={path} path={path} Component={Component} />
             ))};
             

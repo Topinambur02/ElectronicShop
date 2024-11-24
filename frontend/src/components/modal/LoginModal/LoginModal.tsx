@@ -1,7 +1,8 @@
+import { IProps } from '../../../types/LoginModalType';
+import LoginForm from '../../loginForm/LoginForm';
 import style from './LoginModal.module.css';
-import LoginForm from '../loginForm/LoginForm';
 
-const LoginModal = ({ visible, setVisible }: any) => {
+const LoginModal = ({ visible, setVisible }: IProps) => {
 
     const rootClasses = [style.modal];
 

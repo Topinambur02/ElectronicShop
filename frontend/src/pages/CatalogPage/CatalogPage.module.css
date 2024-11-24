@@ -42,16 +42,6 @@
     margin-bottom: 10px;
 }
 
-.longCard button {
-    color: black;
-    border: 1px solid rgb(0, 153, 255);
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    align-self: flex-end;
-    width: 200px;
-}
-
 .longCard h3 {
     text-align: left;
     flex-grow: 1;
@@ -63,10 +53,6 @@
 
 .longCard img {
     width: 20%;
-}
-
-.longCard:hover button {
-    background-color: cornflowerblue;
 }
 
 .longCard:hover h3 {

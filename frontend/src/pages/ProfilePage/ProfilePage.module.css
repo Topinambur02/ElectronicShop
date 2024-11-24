@@ -1,0 +1,58 @@
+
+.profilePage {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.profileInfo {
+    display: flex;
+    align-items: center;
+}
+
+.profileAvatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profileDetails h2 {
+    margin: 0;
+}
+
+.profileDetails p {
+    margin: 5px 0;
+}
+
+.editButton {
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logoutButton {
+    padding: 10px 20px;
+    background-color: rgb(209, 0, 0);
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addDeviceButton {
+    padding: 10px 20px;
+    background-color: rgb(100, 237, 146);
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}

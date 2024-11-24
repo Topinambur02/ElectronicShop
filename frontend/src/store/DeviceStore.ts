@@ -1,23 +1,15 @@
 import { makeAutoObservable } from "mobx";
-import { Product } from "../types/ProductType";
 import { Type } from "../types/Type";
 import { Brands } from "../types/BrandsType";
+import { DeviceType } from "../types/DeviceType";
 
 export class DeviceStore {
 
-    private _devices: Array<Product>
+    private _devices: Array<DeviceType>
     private _types: Array<Type>
     private _brands: Array<Brands>
 
     constructor() {
-
-        // this._devices = [
-        //     { id: 1, name: 'Samsung Galaxy S21', price: 1000, imageUrl: 'phone.jpg' },
-        //     { id: 2, name: 'iPhone 13', price: 1200, imageUrl: 'phone.jpg' },
-        //     { id: 3, name: 'iPhone 13', price: 1200, imageUrl: 'phone.jpg' },
-        //     { id: 4, name: 'iPhone 13', price: 1200, imageUrl: 'phone.jpg' }
-        // ];
-
         this._devices = [];
 
         this._types = [
@@ -33,7 +25,7 @@ export class DeviceStore {
         makeAutoObservable(this);
     }
 
-    setDevices(devices: Array<Product>) {
+    setDevices(devices: Array<DeviceType>) {
         this._devices = devices;
     }
 

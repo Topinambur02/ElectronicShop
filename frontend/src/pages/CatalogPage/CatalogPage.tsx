@@ -2,17 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 import useTitle from '../../hooks/useTitle';
 import style from './CatalogPage.module.css';
 import { Context } from '../..';
-import ProductCard from '../../components/product/ProductCard';
+import DeviceCard from '../../components/device/DeviceCard';
 import { ChevronDown } from 'lucide-react';
-import LoginModal from '../../components/modal/LoginModal';
 import { getAllDevices } from '../../http/DeviceApi';
 import { observer } from 'mobx-react-lite';
 import { Filters } from '../../types/FiltersType';
+import LoginModal from '../../components/modal/LoginModal/LoginModal';
 
 const CatalogPage = observer(() => {
   useTitle('Каталог');
 
-  const context = useContext(Context);
+  const { userStore, deviceStore } = useContext(Context) || {};
   const [modal, setModal] = useState(false);
   const [filters, setFilters] = useState({
     price: false,
@@ -33,19 +33,13 @@ const CatalogPage = observer(() => {
   };
 
   useEffect(() => {
-    getAllDevices().then(data => context?.deviceStore.setDevices(data));
+    getAllDevices().then(data => deviceStore?.setDevices(data));
   }, []);
-
-  if (!context) {
-    return null;
-  }
-
-  const { userStore, deviceStore } = context;
 
   return (
     <div className={style.container}>
 
-      {!userStore.isAuth && <LoginModal visible={modal} setVisible={setModal} />}
+      {!userStore?.isAuth && <LoginModal visible={modal} setVisible={setModal} />}
 
       <div className={style.left}>
 
@@ -107,7 +101,7 @@ const CatalogPage = observer(() => {
 
       <div className={style.right}>
 
-        {deviceStore.devices.map(device => (<ProductCard setModal={setModal} className={style.longCard} key={device.id} product={device} />))}
+        {deviceStore?.devices.map(device => (<DeviceCard setModal={setModal} className={style.longCard} key={device.id} device={device} />))}
 
       </div>
 

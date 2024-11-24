@@ -1,0 +1,74 @@
+.deviceCard {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px;
+}
+  
+.deviceCard img {
+    width: 100%;
+    height: auto;
+}
+
+.priceAndButton {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+  
+.deviceCard button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.addToCartButton {
+    color: black;
+    border: 1px solid rgb(0, 122, 203);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    width: 175px;
+}
+
+.addToCartButton:hover {
+    background-color: rgb(0, 153, 255);
+}
+
+.editButton {
+    color: black;
+    border: 1px solid rgb(255, 145, 0);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    width: 175px;
+}
+
+.editButton:hover {
+    background-color: rgb(255, 191, 0);
+}
+
+.deleteButton {
+    color: black;
+    border: 1px solid rgb(199, 0, 0);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    width: 175px;
+}
+
+.deleteButton:hover {
+    background-color: red;
+}

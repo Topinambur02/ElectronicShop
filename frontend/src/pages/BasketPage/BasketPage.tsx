@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import style from "./BasketPage.module.css";
 import { cartStore } from "../../store/CartStore";
-import ProductCard from "../../components/product/ProductCard";
+import DeviceCard from "../../components/device/DeviceCard";
 import { observer } from "mobx-react-lite";
 
 const BasketPage = observer(() => {
   useTitle('Корзина');
-
 
   return (
     <div>
@@ -22,7 +21,7 @@ const BasketPage = observer(() => {
 
             ?
             <div>
-              {cartStore.cart.map((item) => <ProductCard className={style.longCard} key={item.id} product={item} />)}
+              {cartStore.cart.map((item) => <DeviceCard className={style.longCard} key={item.id} device={item} />)}
             </div>
             :
             <div>

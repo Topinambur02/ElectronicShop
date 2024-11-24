@@ -1,4 +1,4 @@
-.products {
+.devices {
     display: grid;
     grid-template: repeat(2, auto) / repeat(2, auto);
     justify-content: center;

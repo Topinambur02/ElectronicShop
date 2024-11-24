@@ -7,13 +7,7 @@ import { cartStore } from '../../store/CartStore';
 
 const Header = observer(() => {
 
-  const context = useContext(Context);
-
-  if (!context) {
-    return null;
-  }
-
-  const { userStore } = context;
+  const { userStore } = useContext(Context) || {};
 
   return (
     <header>
@@ -33,7 +27,7 @@ const Header = observer(() => {
         <input className='p-1' type="text" placeholder="Поиск" />
       </div>
 
-      {userStore.isAuth ?
+      {userStore?.isAuth ?
         <div className='flex gap-5'>
           <Link to="/profile">{userStore.user.login}</Link>
           <Link to="/basket">Корзина({cartStore.cart.length})</Link>
