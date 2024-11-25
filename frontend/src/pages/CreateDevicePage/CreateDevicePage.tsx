@@ -10,6 +10,11 @@ const CreateDevicePage = () => {
         name: '',
         description: '',
         price: 0,
+        brand: '',
+        type: '',
+        year: 0,
+        color: '',
+        country: '',
         imageUrl: '',
       });
     
@@ -63,6 +68,66 @@ const CreateDevicePage = () => {
                         id="price"
                         name="price"
                         value={device.price}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className={style.formGroup}>
+                    <label htmlFor="brand">Бренд товара:</label>
+                    <input
+                        type="text"
+                        id="brand"
+                        name="brand"
+                        value={device.brand}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className={style.formGroup}>
+                    <label htmlFor="type">Тип товара:</label>
+                    <input
+                        type="text"
+                        id="type"
+                        name="type"
+                        value={device.type}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className={style.formGroup}>
+                    <label htmlFor="year">Год товара:</label>
+                    <input
+                        type="number"
+                        id="year"
+                        name="year"
+                        value={device.year}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className={style.formGroup}>
+                    <label htmlFor="color">Цвет товара:</label>
+                    <input
+                        type="text"
+                        id="color"
+                        name="color"
+                        value={device.color}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className={style.formGroup}>
+                    <label htmlFor="country">Страна производитель:</label>
+                    <input
+                        type="text"
+                        id="country"
+                        name="country"
+                        value={device.country}
                         onChange={handleChange}
                         required
                     />

@@ -26,6 +26,16 @@ public class Device {
 
     private Integer price;
 
+    private String brand;
+
+    private String type;
+
+    private Integer year;
+
+    private String color;
+
+    private String country;
+
     private String imageUrl;
 
     @ManyToOne

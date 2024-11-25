@@ -15,6 +15,16 @@ public class DeviceDto {
 
     private Integer price;
 
+    private String brand;
+
+    private String type;
+
+    private Integer year;
+
+    private String color;
+
+    private String country;
+
     private String imageUrl;
 
     private Long bucketId;
