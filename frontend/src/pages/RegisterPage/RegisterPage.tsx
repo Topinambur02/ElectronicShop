@@ -12,7 +12,7 @@ const RegisterPage = () => {
           <input type="text" name="login" placeholder="Логин" required />
           <input type="email" name="email" placeholder="Электронная почта" required />
 
-          <div className='flex gap-5'>
+          <div className={style.passwords}>
             <input type="password" name="password" placeholder="Пароль" required />
             <input type="password" name="confirmPassword" placeholder="Подтверждение пароля" required />
           </div>

@@ -2,9 +2,30 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #2c3e50;
     color: white;
+}
+
+.pages {
+    display: flex;
+    margin-left: 20rem;
+    gap: 10px;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.search {
+    padding: 4px;
 }
 
 .nav a {
@@ -28,4 +49,38 @@ header {
 
 input:focus {
     color: black;
+}
+
+@media (max-width: 768px) {
+    header {
+        align-items: flex-start;
+    }
+
+    .searchContainer {
+        display: none;
+    }
+
+    .links {
+        gap: 10px;
+    }
+
+    .search-cart {
+        display: flex;
+        gap: 10px;
+    }
+
+    .cart {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav a {
+        margin: 0;
+    }
+
+    .pages {
+        display: none;
+    }
 }

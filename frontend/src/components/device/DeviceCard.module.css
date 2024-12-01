@@ -1,14 +1,16 @@
 .deviceCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
+    padding: 5px;
     width: 200px;
 }
   
 .deviceCard img {
     width: 100%;
-    height: auto;
 }
 
 .priceAndButton {
@@ -24,6 +26,7 @@
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    align-self: center;
 }
 
 .buttons {
@@ -71,4 +74,16 @@
 
 .deleteButton:hover {
     background-color: red;
+}
+
+@media (max-width: 768px) {
+
+    .deviceCard {
+        width: auto;
+    }
+    
+    .buttons {
+        flex-direction: column;
+    }
+
 }

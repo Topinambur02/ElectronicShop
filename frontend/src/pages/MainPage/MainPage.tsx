@@ -34,7 +34,7 @@ const MainPage = observer(() => {
 
             </section>
 
-            <section className="m-5">
+            <section className={style.popular}>
                 <h2>Популярные товары</h2>
 
                 <div className={style.devices}>

@@ -5,7 +5,6 @@
 }
 
 .goods {
-    width: calc(100% - 370px);
     margin: 40px;
     padding: 1rem;
     background-color: gainsboro;
@@ -80,4 +79,23 @@ h2 {
 
 .longCard .addToCartButton {
     display: none;
+}
+
+@media (max-width: 768px) {
+    .longCard img {
+        width: 40%;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .orderTerms {
+        margin: 10px;
+        width: auto;
+    }
+
+    .goods {
+        margin: 10px;
+    }
 }

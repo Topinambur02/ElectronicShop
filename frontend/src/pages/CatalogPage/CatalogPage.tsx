@@ -10,7 +10,6 @@ import { Filters } from '../../types/FiltersType';
 import { Range } from 'react-range';
 import LoginModal from '../../components/modal/LoginModal/LoginModal';
 import MySelect from '../../components/MySelect/MySelect';
-import { IRenderThumbParams, IRenderTrackParams } from 'react-range/lib/types';
 
 const CatalogPage = observer(() => {
   useTitle('Каталог');
@@ -78,8 +77,6 @@ const CatalogPage = observer(() => {
     if (filters.country.length > 0 && !filters.country.includes(device.country)) return false;
     return true;
   }) || [];
-
-  console.log(filters.price);
 
   return (
     <div className={style.container}>

@@ -52,3 +52,27 @@ h1 {
 .formContainer button:hover {
     background-color: #0056b3;
 }
+
+.passwords {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 1200px;
+        margin: 10px;
+        padding: 2rem;
+    }
+
+    .passwords {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .formContainer input[type="password"],
+    .formContainer input[type="confirmPassword"] {
+        width: 100%;
+        padding: 10px;
+    }
+}

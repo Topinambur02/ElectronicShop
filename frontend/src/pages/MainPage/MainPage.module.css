@@ -9,15 +9,33 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 10px;
+    padding: 10px;
 }
 
 .categoryButtons button {
     margin: 0 10px;
     padding: 10px 20px;
+    width: 150px;
     background-color: #3498db;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    white-space: nowrap;
+}
+
+.popular {
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    .devices {
+        gap: 5px;
+    }
+
+    .categoryButtons {
+        gap: 5px;
+    }
 }
