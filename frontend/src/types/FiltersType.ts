@@ -1,10 +1,13 @@
 export interface Filters {
-    price: boolean;
-    brand: boolean;
-    rating: boolean;
-    type: boolean;
-    specs: boolean;
-    year: boolean;
-    color: boolean;
-    country: boolean;
+    price: NumValue;
+    brand: Array<string>;
+    type: Array<string>;
+    year: NumValue;
+    color: Array<string>;
+    country: Array<string>;
+}
+
+interface NumValue {
+    min: number;
+    max: number;
 }

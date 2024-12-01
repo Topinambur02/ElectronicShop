@@ -20,7 +20,7 @@
 }
 
 .oneFilter:hover {
-    background-color:rgb(0, 153, 255);
+    background-color: rgb(0, 153, 255);
 }
 
 .filters li:last-child {
@@ -62,6 +62,7 @@
 
 .inFilter {
     display: flex;
+    align-items: center;
+    gap: 5px;
     justify-content: center;
-    gap: 10px;
 }
