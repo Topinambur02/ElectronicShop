@@ -23,10 +23,6 @@ const Header = observer(() => {
         <Link to="/about">О нас</Link>
       </nav>
 
-      <div className={style.searchContainer}>
-        <input className={style.search} type="text" placeholder="Поиск" />
-      </div>
-
       {userStore?.isAuth ?
         <div className={style.links}>
           <Link to="/profile">{userStore.user.login}</Link>

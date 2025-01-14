@@ -3,9 +3,9 @@ import style from "./MainPage.module.css"
 import useTitle from '../../hooks/useTitle';
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../..';
-import { getAllDevices } from '../../http/DeviceApi';
 import { observer } from 'mobx-react-lite';
 import LoginModal from '../../components/modal/LoginModal/LoginModal';
+import useDeviceJoinImage from '../../hooks/useDeviceJoinImage';
 
 const MainPage = observer(() => {
     useTitle('Главная страница');
@@ -14,7 +14,7 @@ const MainPage = observer(() => {
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
-        getAllDevices().then(data => deviceStore?.setDevices(data))
+        useDeviceJoinImage(deviceStore);
     }, []);
 
     return (

@@ -67,6 +67,10 @@
     margin-left: 80px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -77,8 +81,15 @@
     }
 
     .longCard img {
-        width: 30%;
-        height: 30%;
+        width: 100%;
+    }
+
+    .longCard {
+        display: block;
+    }
+
+    .longCard h3 {
+        text-align: center;
     }
 
 }

@@ -1,0 +1,175 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer {
+    margin: 20px;
+    background-color: #fff;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    color: #ccc;
+}
+
+.step.active {
+    border-bottom: 2px solid #000;
+    color: #000;
+}
+
+.stepContent {
+    margin-bottom: 20px;
+}
+
+.stepContent h3 {
+    margin-bottom: 10px;
+}
+
+.stepContent label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.stepContent input[type="text"],
+.stepContent input[type="tel"],
+.stepContent input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.mapPlaceholder {
+    height: 200px;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.map {
+    height: 200px;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background: #0056b3;
+}
+
+.paymentOption {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paymentOption:hover {
+    border-color: #007bff;
+}
+
+.paymentOption.selected {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+.paymentOption img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.paymentOption span {
+    font-size: 16px;
+}
+
+.successPage {
+    text-align: center;
+    padding: 20px;
+}
+
+.successIcon {
+    font-size: 60px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.successPage h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.successPage p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.successPage button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.successPage button:hover {
+    background: #0056b3;
+}
+
+@media (max-width: 768px) {
+
+    .formContainer {
+        padding: 7px;
+    }
+
+    .step {
+        width: 100%;
+    }
+}

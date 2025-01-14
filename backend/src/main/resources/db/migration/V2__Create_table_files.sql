@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS files (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    url TEXT NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    size BIGINT NOT NULL
+);

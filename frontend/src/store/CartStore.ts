@@ -12,6 +12,10 @@ class CartStore {
         return this._cart;
     }
 
+    setCart(cart: Array<DeviceType>) {
+        this._cart = cart;
+    }
+
     addToCart(device: DeviceType) {
         if (this._cart.find(item => item.id === device.id)) {
             return

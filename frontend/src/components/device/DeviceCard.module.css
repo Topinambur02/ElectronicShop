@@ -8,8 +8,13 @@
     padding: 5px;
     width: 200px;
 }
+
+.deviceCard .underImage {
+    margin-top: auto;
+}
   
 .deviceCard img {
+    margin: auto;
     width: 100%;
 }
 
@@ -81,9 +86,22 @@
     .deviceCard {
         width: auto;
     }
-    
+
+    .editButton {
+        width: auto;
+    }
+
+    .deleteButton {
+        width: auto;
+    }
+
+    .priceAndButton p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
     .buttons {
-        flex-direction: column;
+        justify-content: flex-end;
     }
 
 }

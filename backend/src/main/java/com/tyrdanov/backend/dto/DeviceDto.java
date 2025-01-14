@@ -11,8 +11,6 @@ public class DeviceDto {
 
     private String name;
 
-    private String description;
-
     private Integer price;
 
     private String brand;
@@ -25,8 +23,8 @@ public class DeviceDto {
 
     private String country;
 
-    private String imageUrl;
-
     private Long bucketId;
+
+    private Long imageId;
 
 }

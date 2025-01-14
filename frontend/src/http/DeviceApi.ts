@@ -1,7 +1,7 @@
 import $host from ".";
 import { DeviceType } from "../types/DeviceType";
 
-export const getAllDevices = async () => {
+export const getAllDevices = async (): Promise<DeviceType[]> => {
     const { data } = await $host.get('/device');
     return data;
 }

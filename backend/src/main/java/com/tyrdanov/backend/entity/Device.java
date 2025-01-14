@@ -22,8 +22,6 @@ public class Device {
 
     private String name;
 
-    private String description;
-
     private Integer price;
 
     private String brand;
@@ -36,10 +34,12 @@ public class Device {
 
     private String country;
 
-    private String imageUrl;
-
     @ManyToOne
     @JoinColumn(name = "bucket_id", nullable = true)
-    private Bucket bucket = null;
+    private Bucket bucket;
+
+    @ManyToOne
+    @JoinColumn(name = "image_id")
+    private File file;
 
 }

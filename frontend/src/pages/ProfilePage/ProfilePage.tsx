@@ -19,7 +19,7 @@ const ProfilePage = () => {
 
   return (
     <div className={style.profilePage}>
-      <div className={style.profileInfo}>
+      <div>
 
         <div className={style.profileAvatar}>
           <img src={userStore?.user.avatar} alt="Аватар пользователя" />

@@ -67,31 +67,34 @@ const DeviceCard = ({ device, className = `${style.deviceCard}`, setModal }: IPr
 
     return (
         <div className={`${className}`}>
-            <img src={device.imageUrl} alt={device.name} />
-            <h3>{device.name}</h3>
+            <img src={device.image.url} alt={device.name} />
 
-            <div className={style.priceAndButton}>
-                <p>Цена: {device.price} ₽</p>
+            <div className={style.underImage}>
+                <h3>{device.name}</h3>
 
-                {userStore.isAuth
-                    ?
-                    <div>
-                        {showDeleteButton
-                            ? <button onClick={handleRemoveFromCart}>Удалить</button>
-                            :
-                            <div className={style.buttons}>
-                                <button className={style.addToCartButton} onClick={handleAddToCart}>
-                                    {isAddedToCart ? <Link to={'/basket'}>В корзине</Link> : 'Добавить в корзину'}
-                                </button>
-                                { (role === 'ADMIN' && pageTitle !== 'Корзина' && pageTitle !== 'Главная страница')
-                                    &&
-                                    <div className={style.buttons}>
-                                        <button onClick={() => setIsEditModalOpen(true)} className={style.editButton}>Редактировать</button>
-                                        <button onClick={handleRemoveDevice} className={style.deleteButton}>Удалить</button>
-                                    </div>}
-                            </div>}
-                    </div>
-                    : setModal && <button onClick={() => setModal(true)} >Добавить в корзину</button>}
+                <div className={style.priceAndButton}>
+                    <p>Цена: {device.price} ₽</p>
+
+                    {userStore.isAuth
+                        ?
+                        <div>
+                            {showDeleteButton
+                                ? <button onClick={handleRemoveFromCart}>Удалить</button>
+                                :
+                                <div className={style.buttons}>
+                                    <button className={style.addToCartButton} onClick={handleAddToCart}>
+                                        {isAddedToCart ? <Link to={'/basket'}>В корзине</Link> : 'Добавить в корзину'}
+                                    </button>
+                                    {(role === 'ADMIN' && pageTitle !== 'Корзина' && pageTitle !== 'Главная страница')
+                                        &&
+                                        <div className={style.buttons}>
+                                            <button onClick={() => setIsEditModalOpen(true)} className={style.editButton}>Редактировать</button>
+                                            <button onClick={handleRemoveDevice} className={style.deleteButton}>Удалить</button>
+                                        </div>}
+                                </div>}
+                        </div>
+                        : setModal && <button onClick={() => setModal(true)} >Добавить в корзину</button>}
+                </div>
             </div>
 
             {isEditModalOpen && (

@@ -2,42 +2,70 @@ import React, { useState } from "react";
 import style from './CreateDevicePage.module.css'
 import { createDevice } from "../../http/DeviceApi";
 import useTitle from "../../hooks/useTitle";
+import { uploadFile } from "../../http/FileApi";
 
 const CreateDevicePage = () => {
     useTitle('Создание товара');
 
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [file, setFile] = useState<File | null>(null);
     const [device, setDevice] = useState({
         name: '',
-        description: '',
         price: 0,
         brand: '',
         type: '',
         year: 0,
         color: '',
         country: '',
-        imageUrl: '',
-      });
-    
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        imageId: null
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setDevice({
-          ...device,
-          [name]: value,
+            ...device,
+            [name]: value,
         });
-      };
-    
-      const handleSubmit = (e: React.FormEvent) => {
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        const formData = new FormData();
+
+        formData.append('file', file!);
+
         try {
-            createDevice(device);
-            e.preventDefault();
+            const res = await uploadFile(file!);
+            device.imageId = res.id;
+            await createDevice(device);
+            setIsSubmitted(true);
         } catch (error) {
             console.log(error);
         }
-      };
+    };
+
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setFile(e.target.files[0]);
+        }
+    };
 
     return (
         <div className={style.createDevicePage}>
             <form onSubmit={handleSubmit} className={style.deviceForm}>
+
+                <div className={style.formGroup}>
+                    <label htmlFor="image">Изображение товара:</label>
+                    <input
+                        type="file"
+                        id="image"
+                        name="image"
+                        onChange={handleImageChange}
+                        accept="image/*"
+                        required
+                    />
+                </div>
+
                 <div className={style.formGroup}>
                     <label htmlFor="name">Название товара:</label>
                     <input
@@ -47,17 +75,6 @@ const CreateDevicePage = () => {
                         value={device.name}
                         onChange={handleChange}
                         required
-                    />
-                </div>
-
-                <div className={style.formGroup}>
-                    <label htmlFor="description">Описание товара:</label>
-                    <textarea
-                        id="description"
-                        name="description"
-                        value={device.description}
-                        onChange={handleChange}
-                        defaultValue=""
                     />
                 </div>
 
@@ -133,20 +150,13 @@ const CreateDevicePage = () => {
                     />
                 </div>
 
-                <div className={style.formGroup}>
-                    <label htmlFor="imageUrl">URL изображения:</label>
-                    <input
-                        type="text"
-                        id="imageUrl"
-                        name="imageUrl"
-                        value={device.imageUrl}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
                 <button type="submit" className={style.submitButton}>Создать товар</button>
             </form>
+
+            {isSubmitted && 
+                <div className={style.successMessage}>
+                    Устройство успешно создано!
+                </div>}
         </div>
     );
 }

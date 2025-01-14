@@ -9,14 +9,7 @@ header {
 
 .pages {
     display: flex;
-    margin-left: 20rem;
     gap: 10px;
-}
-
-.searchContainer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 
 .links {
@@ -24,11 +17,7 @@ header {
     gap: 20px;
 }
 
-.search {
-    padding: 4px;
-}
-
-.nav a {
+header a {
     color: white;
     margin: 0 15px;
     text-decoration: none;
@@ -64,23 +53,12 @@ input:focus {
         gap: 10px;
     }
 
-    .search-cart {
-        display: flex;
-        gap: 10px;
+    .pages {
+        display: none;
     }
 
     .cart {
         margin-left: 0;
         margin-top: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav a {
-        margin: 0;
-    }
-
-    .pages {
-        display: none;
     }
 }

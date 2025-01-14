@@ -7,11 +7,6 @@
     border-radius: 10px;
 }
 
-.profileInfo {
-    display: flex;
-    align-items: center;
-}
-
 .profileAvatar img {
     width: 150px;
     height: 150px;

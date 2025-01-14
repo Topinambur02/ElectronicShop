@@ -4,12 +4,12 @@ import style from './CatalogPage.module.css';
 import { Context } from '../..';
 import DeviceCard from '../../components/device/DeviceCard';
 import { ChevronDown } from 'lucide-react';
-import { getAllDevices } from '../../http/DeviceApi';
 import { observer } from 'mobx-react-lite';
 import { Filters } from '../../types/FiltersType';
 import { Range } from 'react-range';
 import LoginModal from '../../components/modal/LoginModal/LoginModal';
 import MySelect from '../../components/MySelect/MySelect';
+import useDeviceJoinImage from '../../hooks/useDeviceJoinImage';
 
 const CatalogPage = observer(() => {
   useTitle('Каталог');
@@ -26,7 +26,7 @@ const CatalogPage = observer(() => {
   });
   const [selectedSort, setSelectedSort] = useState('');
   const [filters, setFilters] = useState<Filters>({
-    price: { min: 0, max: 10000 },
+    price: { min: 0, max: 100000 },
     brand: [],
     type: [],
     year: { min: 2000, max: 2023 },
@@ -65,7 +65,7 @@ const CatalogPage = observer(() => {
   };
 
   useEffect(() => {
-    getAllDevices().then(data => deviceStore?.setDevices(data));
+    useDeviceJoinImage(deviceStore);
   }, []);
 
   const filteredDevices = deviceStore?.devices.filter(device => {
@@ -88,7 +88,6 @@ const CatalogPage = observer(() => {
         <div className={style.filters}>
 
           <ul>
-
             <li onClick={() => toggleShowFilters('price')}>
               <div className={style.oneFilter}>
                 <ChevronDown />
@@ -100,8 +99,8 @@ const CatalogPage = observer(() => {
                     values={[filters.price.min, filters.price.max]}
                     step={100}
                     min={0}
-                    max={10000}
-                    onChange={(values) => toggleFilter('price', { min: values[0], max: values[1] })} 
+                    max={100000}
+                    onChange={(values) => toggleFilter('price', { min: values[0], max: values[1] })}
 
                     renderThumb={({ props }) => (
                       <div
@@ -115,7 +114,7 @@ const CatalogPage = observer(() => {
                         }}
                       />
                     )}
-                    
+
                     renderTrack={({ props, children }) => (
                       <div
                         {...props}
@@ -133,7 +132,7 @@ const CatalogPage = observer(() => {
                         {children}
                       </div>
                     )}
-                    />
+                  />
                   <div>От {filters.price.min} до {filters.price.max}</div>
                 </div>}
             </li>
@@ -190,7 +189,7 @@ const CatalogPage = observer(() => {
                     step={1}
                     min={2000}
                     max={2024}
-                    onChange={(values) => toggleFilter('year', { min: values[0], max: values[1] })} 
+                    onChange={(values) => toggleFilter('year', { min: values[0], max: values[1] })}
 
                     renderThumb={({ props }) => (
                       <div
@@ -204,7 +203,7 @@ const CatalogPage = observer(() => {
                         }}
                       />
                     )}
-                    
+
                     renderTrack={({ props, children }) => (
                       <div
                         {...props}
@@ -222,7 +221,7 @@ const CatalogPage = observer(() => {
                         {children}
                       </div>
                     )}
-                    />
+                  />
                   <div>От {filters.year.min} до {filters.year.max}</div>
                 </div>}
             </li>

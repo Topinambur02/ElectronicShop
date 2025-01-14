@@ -1,13 +1,20 @@
-
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import style from "./BasketPage.module.css";
 import { cartStore } from "../../store/CartStore";
 import DeviceCard from "../../components/device/DeviceCard";
 import { observer } from "mobx-react-lite";
+import { useState } from "react";
+import OrderPlacementModal from "../../components/modal/OrderPlacementModal/OrderPlacementModal";
 
 const BasketPage = observer(() => {
   useTitle('Корзина');
+
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const handleOrderButtonClick = () => {
+    setModalVisible(true);
+  };
 
   return (
     <div>
@@ -26,7 +33,7 @@ const BasketPage = observer(() => {
             :
             <div>
               <h2>Тут пока пусто</h2>
-              <p className={style.text}>Воспользуйтесь <Link to={"/catalog"}>каталогом</Link> или поиском</p>
+              <p className={style.text}>Воспользуйтесь <Link to={"/catalog"}>каталогом</Link></p>
             </div>
           }
         </div>
@@ -41,11 +48,11 @@ const BasketPage = observer(() => {
                 {cartStore.cart.reduce((acc, item) => acc + item.price, 0)} ₽
               </div>
             </div>
-            <button>Оформить заказ</button>
+            <button onClick={handleOrderButtonClick}>Оформить заказ</button>
           </div>}
 
       </div>
-
+      <OrderPlacementModal visible={isModalVisible} setVisible={setModalVisible} />
     </div>
   );
 });

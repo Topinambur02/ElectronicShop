@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.tyrdanov.backend.dto.DeviceDto;
 import com.tyrdanov.backend.mapper.DeviceMapper;
 import com.tyrdanov.backend.repository.DeviceRepository;
+import com.tyrdanov.backend.repository.FileRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +17,7 @@ public class DeviceService {
 
     private final DeviceMapper mapper;
     private final DeviceRepository repository;
+    private final FileRepository fileRepository;
 
     public List<DeviceDto> getAll() {
         return repository
@@ -34,14 +36,19 @@ public class DeviceService {
     }
 
     public DeviceDto create(DeviceDto deviceDto) {
-        final var device = mapper.toDevice(deviceDto);
+        final var imageId = deviceDto.getImageId();
+        final var file = fileRepository.findById(imageId).orElseThrow(() -> new RuntimeException("File not found"));
+        final var device = mapper.toDevice(deviceDto, file);
+        device.setFile(file);
         final var created = repository.save(device);
 
         return mapper.toDto(created);
     }
 
     public DeviceDto update(DeviceDto deviceDto) {
-        final var device = mapper.toDevice(deviceDto);
+        final var imageId = deviceDto.getImageId();
+        final var file = fileRepository.findById(imageId).orElseThrow(() -> new RuntimeException("File not found"));
+        final var device = mapper.toDevice(deviceDto, file);
         final var updated = repository.save(device);
 
         return mapper.toDto(updated);

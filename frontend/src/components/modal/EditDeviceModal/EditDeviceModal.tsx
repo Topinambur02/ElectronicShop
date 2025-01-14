@@ -7,8 +7,6 @@ import { IProps } from "../../../types/EditDeviceModalType";
 const EditDeviceModal = ({ device, onClose }: IProps) => {
     const [name, setName] = useState(device.name);
     const [price, setPrice] = useState(device.price);
-    const [imageUrl, setImageUrl] = useState(device.imageUrl);
-    const [description, setDescription] = useState(device.description);
     const { deviceStore } = useContext(Context) || {};
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -17,9 +15,7 @@ const EditDeviceModal = ({ device, onClose }: IProps) => {
             const updatedDevice = {
                 ...device,
                 name,
-                description,
                 price,
-                imageUrl,
             };
             updateDevice(updatedDevice);
             deviceStore?.setDevices(deviceStore.devices.map(item => item.id === device.id ? updatedDevice : item));
@@ -50,24 +46,6 @@ const EditDeviceModal = ({ device, onClose }: IProps) => {
                             id="price"
                             value={price}
                             onChange={(e) => setPrice(Number(e.target.value))}
-                        />
-                    </div>
-                    <div className={style.formGroup}>
-                        <label htmlFor="description">Описание:</label>
-                        <input
-                            type="text"
-                            id="description"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                    </div>
-                    <div className={style.formGroup}>
-                        <label htmlFor="imageUrl">URL изображения:</label>
-                        <input
-                            type="text"
-                            id="imageUrl"
-                            value={imageUrl}
-                            onChange={(e) => setImageUrl(e.target.value)}
                         />
                     </div>
                     <button type="submit" className={style.saveButton}>Сохранить</button>
